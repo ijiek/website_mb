@@ -1,0 +1,37 @@
+<template>
+  <nav>
+    <div class="navbar_main">
+      <v-app-bar class="navbar_main">
+        <v-container fluid>
+          <v-row justify="center" align="center" class="navbar_main">
+            <v-btn to="/" plain>
+              <h1>mountain bike website</h1>
+            </v-btn>
+            <v-spacer />
+            <v-btn to="/safety" text>
+              Safety
+              <v-icon>mdi-map-marker-multiple</v-icon>
+            </v-btn>
+
+            <v-btn to="/events" text>
+              Events
+              <v-icon>mdi-bike-fast</v-icon>
+            </v-btn>
+
+            <v-btn to="/contact" text>
+              Contact Page
+              <v-icon>mdi-note-edit-outline</v-icon>
+            </v-btn>
+          </v-row>
+        </v-container>
+      </v-app-bar>
+    </div>
+  </nav>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+</style>
