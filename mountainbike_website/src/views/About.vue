@@ -1,41 +1,66 @@
 <template>
   <v-app>
-    <navbar />
-    <v-card>
-      <v-row>
-        <v-col cols="12">
-          <v-card>
-            <v-col cols="12">
-              <v-card-text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus ut accumsan ligula. Aenean arcu tellus, rhoncus vel
-                facilisis a, fringilla sed massa. Fusce pellentesque suscipit
-                gravida. Maecenas sed urna at mi gravida aliquet at eget purus.
-                Vivamus felis nibh, porttitor a pretium sed, ultrices sed urna.
-                Aenean vitae orci congue, interdum nibh varius, blandit dolor.
-                Nam sodales sem ligula, interdum tincidunt augue vulputate non.
-                Phasellus viverra maximus purus, sed auctor erat aliquam sed.
-                Phasellus dictum odio eget velit luctus, nec sodales felis
-                blandit. Proin pharetra dolor sed dolor tincidunt elementum.
-                Aenean molestie scelerisque metus id dapibus. Vivamus et mollis
-                leo. Etiam sapien neque, vulputate a nisi non, aliquam accumsan
-                tellus. Sed finibus dictum purus. Quisque ex nunc, iaculis eu
-                nulla et, tincidunt convallis turpis. Suspendisse venenatis
-                risus quis nisl varius scelerisque. Praesent lacinia mi lorem,
-                quis pulvinar lorem sagittis at. Nulla dignissim tortor vel arcu
-                feugiat, id ullamcorper sapien laoreet.
-              </v-card-text>
-            </v-col>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-card>
+    <form ref="form" @submit.prevent="sendEmail">
+      <label>Name</label>
+      <input type="text" name="user_name" />
+      <label>Email</label>
+      <input type="email" name="user_email" />
+      <label>Message</label>
+      <textarea name="message"></textarea>
+      <input type="submit" value="Send" />
+    </form>
+
+    <v-row align="center" justify="center">
+      <v-col cols="8">
+        <v-text-field
+          type="text"
+          v-model="name"
+          placeholder="Enter your name"
+          label="Name"
+        />
+      </v-col>
+      <v-col cols="8">
+        <v-text-field
+          type="email"
+          v-model="email"
+          placeholder="Enter your email"
+          label="Email"
+        />
+      </v-col>
+      <v-col cols="8">
+        <v-textarea
+          type="message"
+          v-model="message"
+          placeholder="Enter your message"
+          label="Message"
+        />
+      </v-col>
+    </v-row>
   </v-app>
 </template>
 
 <script>
-export default {};
-</script>
+import emailjs from "emailjs-com";
 
-<style>
-</style>
+export default {
+  methods: {
+    sendEmail() {
+      emailjs
+        .sendForm(
+          "service_mqfrcro",
+          "template_8ck9kum",
+          this.$refs.form,
+          "user_5lPKDBFnmuWEIvUBn2EIY"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
+    },
+  },
+};
+</script>

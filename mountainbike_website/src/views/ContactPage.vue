@@ -10,65 +10,62 @@
                 <v-toolbar>
                   <v-toolbar-title> Contact Page </v-toolbar-title>
                 </v-toolbar>
+
                 <v-card-text>
-                  <!-- <v-form ref="form" @submit.prevent="sendEmail"> -->
-                  <v-row align="center" justify="center">
-                    <v-col cols="8">
-                      <v-text-field
-                        v-model="name"
-                        placeholder="Enter your emanameil"
-                        label="Name"
-                      />
-                    </v-col>
-                    <v-col cols="8">
-                      <v-text-field
-                        v-model="email"
-                        placeholder="Enter your email"
-                        label="Email"
-                      />
-                    </v-col>
-                    <v-col cols="8">
-                      <v-textarea
-                        v-model="message"
-                        placeholder="Enter your message"
-                        label="Message"
-                      />
-                    </v-col>
-                  </v-row>
-                  <!-- </v-form> -->
+                  <form ref="form" @submit.prevent="sendEmail">
+                    <v-row align="center" justify="center">
+                      <v-col cols="8">
+                        <v-text-field
+                          name="text"
+                          v-model="name"
+                          placeholder="Enter your name"
+                          label="Name"
+                          outlined
+                          autofocus
+                        />
+                      </v-col>
+                      <v-col cols="8">
+                        <v-text-field
+                          type="email"
+                          name="email"
+                          v-model="email"
+                          placeholder="Enter your email"
+                          label="Email"
+                          outlined
+                        />
+                      </v-col>
+                      <v-col cols="8">
+                        <v-textarea
+                          name="message"
+                          v-model="message"
+                          placeholder="Enter your message"
+                          label="Message"
+                          outlined
+                        />
+                      </v-col>
+                    </v-row>
+                    <v-card-actions>
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-btn v-bind="attrs" v-on="on" @click="clearFields">
+                            Clear
+                          </v-btn>
+                        </template>
+                        <span>Click to Clear fields</span>
+                      </v-tooltip>
+                      <v-spacer />
+                      <v-btn color="green" type="submit" value="send">
+                        submit
+                      </v-btn>
+                    </v-card-actions>
+                  </form>
                 </v-card-text>
-                <v-card-actions>
-                  <v-btn @click="sendEmail"> Submit </v-btn>
-                  <!-- <input type="submit" value="Send" /> -->
-                </v-card-actions>
               </v-card>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-col>
-    <!-- <form>
-      <label>Name</label>
-      <input type="text" v-model="name" name="name" placeholder="Your Name" />
-      <label>Email</label>
-      <input
-        type="email"
-        v-model="email"
-        name="email"
-        placeholder="Your Email"
-      />
-      <label>Message</label>
-      <textarea
-        name="message"
-        v-model="message"
-        cols="30"
-        rows="5"
-        placeholder="Message"
-      >
-      </textarea>
-
-      <input type="submit" value="Send" />
-    </form> -->
     <appfooter />
   </v-app>
 </template>
@@ -91,36 +88,28 @@ export default {
     };
   },
   methods: {
-    sendEmail(e) {
-      try {
-        emailjs.sendForm(
+    sendEmail() {
+      emailjs
+        .sendForm(
           "service_mqfrcro",
           "template_8ck9kum",
-          e.target,
-          "user_5lPKDBFnmuWEIvUBn2EIY",
-          {
-            name: this.name,
-            email: this.email,
-            message: this.message,
+          this.$refs.form,
+          "user_5lPKDBFnmuWEIvUBn2EIY"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
           }
         );
-        console.log("worked");
-      } catch (error) {
-        console.log({ error });
-      }
+    },
+    clearFields() {
+      (this.name = ""), (this.email = ""), (this.message = "");
     },
   },
 };
-
-// export default {
-//   name: "App",
-//
-//   data() {
-//     return {
-//       e6: 1,
-//     };
-//   },
-// };
 </script>
 
 
