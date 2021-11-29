@@ -172,7 +172,7 @@ export default {
           //   "#0288D1",
           //   "#0D47A1",
         ],
-        interval: 3000,
+        interval: 1000,
         transition: {
           duration: 6000,
         },

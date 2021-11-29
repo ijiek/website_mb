@@ -33,16 +33,16 @@
             <v-col class="text-center" cols="12">
               <v-card class="mx-auto" max-width="450">
                 <v-card-text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus a massa quis leo auctor faucibus ac cursus nunc.
-                  Curabitur id lacus commodo, rutrum velit ac, luctus neque.
-                  Etiam cursus tincidunt ante, quis commodo neque ultrices ut.
-                  Morbi malesuada aliquet nunc a tempus. Donec dictum arcu non
-                  libero rhoncus tincidunt nec non ante. Duis imperdiet arcu et
-                  metus iaculis, ac ullamcorper ex gravida. Nulla consequat
-                  lorem non velit viverra viverra. Aenean malesuada viverra
-                  risus vitae venenatis. Aliquam in rutrum leo. Praesent eget
-                  feugiat eros.
+                  Central Hawkes Bay has the perfect climate for a range of
+                  outdoor activities such as tramping, hunting, fishing and
+                  cycling. There are a number of bike trails in the area and
+                  there is also a family friendly bike club that people can
+                  join.
+                  <br />
+                  At
+                  <a href="https://www.cyclingchb.co.nz/join"> Cycling CHB </a>
+                  they run Tuesday evening races around CHB from 6:00pm till
+                  dark, and anyone is free and welcome to join.
                 </v-card-text>
               </v-card>
             </v-col>
