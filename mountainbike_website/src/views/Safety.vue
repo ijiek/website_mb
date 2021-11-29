@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app v-breathing-colors="sample">
     <navbar />
     <v-col>
       <v-row>
@@ -155,6 +155,28 @@ export default {
   data() {
     return {
       e6: 1,
+      sample: {
+        colors: [
+          "#F5F5F5",
+          "#EEEEEE",
+          "#E0E0E0",
+          "#BDBDBD",
+          "#757575",
+          "#616161",
+          "#424242",
+          "#CFD8DC",
+          "#212121",
+          //   "#388E3C",
+          //   "#00796B",
+          //   "#0097A7",
+          //   "#0288D1",
+          //   "#0D47A1",
+        ],
+        interval: 3000,
+        transition: {
+          duration: 6000,
+        },
+      },
     };
   },
 };

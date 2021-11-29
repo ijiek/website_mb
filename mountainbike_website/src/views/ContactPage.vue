@@ -1,9 +1,10 @@
 <template>
-  <v-app>
+  <v-app v-breathing-colors="sample">
     <navbar />
     <v-col>
       <v-row>
         <v-col>
+          <!-- <v-spacer /> -->
           <v-row align="center" justify="center">
             <v-col cols="8">
               <v-card>
@@ -85,6 +86,29 @@ export default {
       name: "",
       email: "",
       message: "",
+      //vue breathing colours
+      sample: {
+        colors: [
+          "#303F9F",
+          "#0D47A1",
+          "#0288D1",
+          "#0097A7",
+          "#00796B",
+          "#388E3C",
+          "#689F38",
+          "#AFB42B",
+          "#689F38",
+          "#388E3C",
+          "#00796B",
+          "#0097A7",
+          "#0288D1",
+          "#0D47A1",
+        ],
+        interval: 3000,
+        transition: {
+          duration: 6000,
+        },
+      },
     };
   },
   methods: {
