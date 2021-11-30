@@ -4,16 +4,15 @@
       <v-app-bar class="navbar_main">
         <v-container fluid>
           <v-row justify="center" align="center" class="navbar_main">
-            <!-- <v-tooltip bottom>
-              <template v-slot:activator="{ on, attrs }"> -->
-            <v-btn to="/" v-bind="attrs" v-on="on" plain>
-              <!-- <h1>Cycling Website</h1> -->
-              <h1>Mountain Biking Website</h1>
-            </v-btn>
-            <!-- </template>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn to="/" v-bind="attrs" v-on="on" plain>
+                  <h1>mountain bike website</h1>
+                </v-btn>
+              </template>
               <span>Go back to home </span>
-            </v-tooltip> -->
-            <!-- <v-spacer /> -->
+            </v-tooltip>
+            <v-spacer />
             <v-btn to="/safety" text>
               Safety
               <v-icon>mdi-map-marker-multiple</v-icon>
